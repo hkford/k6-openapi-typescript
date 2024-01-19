@@ -1,0 +1,25 @@
+openapi: 3.0.1
+info:
+  title: k6 sample api
+  description: https://httpbin.test.k6.io
+  version: 1.0.7
+paths:  
+  /ip:
+    get:
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IpResponse"
+
+components:
+  schemas:
+    IpResponse:
+      type: object
+      properties:
+        origin: 
+          type: string
+          format: ipv4
+      required: 
+        - origin
